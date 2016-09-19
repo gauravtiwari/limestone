@@ -1,0 +1,12 @@
+%nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+  = link_to 'Brand', main_app.root_path, class: 'navbar-brand'
+  %ul.nav.navbar-nav
+    %li.nav-item
+      = link_to 'Features', features_path, class: 'nav-link'
+    %li.nav-item
+      = link_to 'Pricing', pricing_path, class: 'nav-link'
+    %li.nav-item
+      = link_to 'About', about_path, class: 'nav-link'
+    %li.nav-item.pull-xs-right
+      = link_to 'Sign up', main_app.new_user_registration_path, class: 'btn btn-success'
+      = link_to 'Sign in', main_app.new_user_session_path, class: 'btn btn-secondary'
