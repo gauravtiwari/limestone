@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Comment out these rules if you are OK with secrets being uploaded to the repo
+config/secrets.yml
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
