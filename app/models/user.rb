@@ -13,10 +13,10 @@ class User < ApplicationRecord
   end
 
   def name
-     [first_name, last_name].join " "
-   end
+    [first_name, last_name].join " "
+  end
 
-   def subscribed?
+  def subscribed?
     stripe_subscription_id?
-   end
+  end
 end
