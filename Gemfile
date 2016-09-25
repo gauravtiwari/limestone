@@ -55,12 +55,15 @@ gem "react_on_rails", "~> 6"
 
 gem 'mini_racer', platforms: :ruby
 
-# Front-end stuff (no webpack stuff!)
+# Front-end stuff (non webpack stuff!)
 gem 'haml'
 gem 'simple_form'
 
 # Authentication stuff
 gem 'devise'
+
+# Authorization stuff
+gem 'pundit'
 
 # TODO use regular administrate when Rails 5 supported
 gem 'administrate', github: 'greetpoint/administrate', branch: 'rails5'
