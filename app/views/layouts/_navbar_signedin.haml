@@ -2,9 +2,7 @@
   = link_to 'Brand', main_app.root_path, class: 'navbar-brand'
   %ul.nav.navbar-nav
     %li.nav-item.active
-      = link_to 'One', '#', class: 'nav-link'
-    %li.nav-item
-      = link_to 'Two', '#', class: 'nav-link'
+      = link_to 'Hello World', hello_world_path, class: 'nav-link'
     %li.nav-item.pull-xs-right
       = link_to user_avatar(current_user, 21), '#', {class: 'nav-link dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': true, 'aria-expanded': false}
       .dropdown-menu.dropdown-menu-right
