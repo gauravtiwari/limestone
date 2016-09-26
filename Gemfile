@@ -73,3 +73,6 @@ gem 'bourbon'
 gem 'stripe'
 gem 'stripe_event', '~> 1.5'
 gem 'receipts'
+
+# Never actually delete things
+gem 'paranoia', '~> 2.2.0.pre'
