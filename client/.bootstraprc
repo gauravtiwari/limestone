@@ -29,14 +29,14 @@ env:
 
 # Customize Bootstrap variables that get imported before the original Bootstrap variables.
 # Thus original Bootstrap variables can depend on values from here.
-preBootstrapCustomizations: ./app/assets/styles/bootstrap/pre-customizations.scss
+preBootstrapCustomizations: ./app/assets/styles/bootstrap/pre-customizations.sass
 
 # This gets loaded after bootstrap/variables is loaded
 # So you can refer to bootstrap variables
-bootstrapCustomizations: ./app/assets/styles/bootstrap/customizations.scss
+bootstrapCustomizations: ./app/assets/styles/bootstrap/customizations.sass
 
 # With CSS Modules we load all application styles directly in React components
-appStyles: ./app/assets/styles/app.scss
+appStyles: ./app/assets/styles/app.sass
 
 ### Bootstrap styles
 styles:

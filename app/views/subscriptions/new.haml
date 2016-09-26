@@ -1,7 +1,7 @@
 %h1= current_user.subscribed? ? 'You\'re Currently Subscribed!' : 'Subscribe!'
 
 .row
-  .col-sm-6
+  .col-md-7.col-sm-12
     - if current_user.subscribed?
       %h3 Payment
       %p Your card on file is:
@@ -12,47 +12,48 @@
       .form-group
         %button.btn.btn-secondary{type: 'button', 'data-toggle': 'collapse', 'data-target': '#new_card'} Use a different card
       .row
-        #new_card.collapse.col-xs-offset-1
-          = form_tag card_path, method: :put, id: "payment_form", class: "form form-horizontal" do
+        #new_card.collapse.offset-sm-1.col-xs-11
+          = simple_form_for card_path, method: :put, id: "payment_form", class: "form form-horizontal" do
             %span.payment-errors
             .form-group.row
-              %label{class: "col-sm-4 form-label"} Card Number
-              .col-sm-6
+              %label.col-xs-4.form-label Card Number
+              .col-xs-7
                 %input{value: "4242 4242 4242 4242", type: "text", size: 20, 'data-stripe': "number", class: "form-control"}
             .form-group.row
-              %label{class: "col-sm-4 form-label"} Expiration (MM/YYYY)
-              .col-sm-2
+              %label.col-xs-4.form-label Expiration (MM/YYYY)
+              .col-xs-3
                 %input{value: 12, type: "text", size: 2, 'data-stripe': "exp-month", class: "form-control"}
-              .col-sm-4
+              .col-xs-4
                 %input{value: "2020", type: "text", size: 4, 'data-stripe': "exp-year", class: "form-control"}
             .form-group.row
-              %label{class: "col-sm-4 form-label"} CVC
-              .col-sm-2
+              %label.col-xs-4.form-label CVC
+              .col-xs-3
                 %input{value: "123", type: "text", size: 4, 'data-stripe':"cvc", class: "form-control"}
             .form-group
-              %button{type: "submit", class: 'btn btn-success-outline'} Update Card
+              %button{type: "submit", class: 'btn btn-success'} Update Card
+    - else
+      .row
+        = simple_form_for subscription_path, id: "payment_form", class: "form form-horizontal" do
+          -# %div{class: "card-fields #{card_fields_class}"}
+          %span.payment-errors
+          .form-group.row
+            %label.col-xs-4.form-label Card Number
+            .col-xs-8
+              %input{value: "4242 4242 4242 4242", type: "text", size: 20, 'data-stripe': "number", class: "form-control"}
+          .form-group.row
+            %label.col-xs-4.form-label CVC
+            .col-xs-5
+              %input{value: "123", type: "text", size: 4, 'data-stripe':"cvc", class: "form-control"}
+          .form-group.row
+            %label.col-xs-4.form-label Expiration (MM/YYYY)
+            .col-xs-3
+              %input{value: 12, type: "text", size: 2, 'data-stripe': "exp-month", class: "form-control"}
+            .col-xs-4
+              %input{value: "2020", type: "text", size: 4, 'data-stripe': "exp-year", class: "form-control"}
+          .form-group
+            %button.btn.btn-success{type: "submit"} Submit Payment
 
-    = form_tag subscription_path, id: "payment_form" do
-      %div{class: "card-fields #{card_fields_class}"}
-        %span.payment-errors
-        .form-row
-          %label
-            %span Card Number
-            %input{value: "4242 4242 4242 4242", type: "text", size: 20, 'data-stripe': "number"}
-        .form-row
-          %label
-            %span CVC
-            %input{value: "123", type: "text", size: 4, 'data-stripe':"cvc"}
-        .form-row
-          %label
-            %span Expiration (MM/YYYY)
-            %input{value: 12, type: "text", size: 2, 'data-stripe': "exp-month"}
-          %span /
-          %input{value: "2020", type: "text", size: 4, 'data-stripe': "exp-year"}
-
-      %button{type: "submit"} Submit Payment
-
-  .col-sm-6
+  .col-md-5.col-sm-12
     - if current_user.charges.any?
       %h3 Your Previous charges
       - current_user.charges.each do |charge|

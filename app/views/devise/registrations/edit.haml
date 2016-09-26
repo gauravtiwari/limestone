@@ -11,8 +11,8 @@
       = f.input :password_confirmation, autocomplete: "off"
       = f.input :current_password, autocomplete: "off", hint: "We need your current password to confirm your changes"
       .form-group
-        = f.button :submit, "Update", class: "btn btn-primary-outline"
+        = f.button :submit, "Update", class: "btn btn-primary"
 
       %h3 Cancel my account
       %p
-        Unhappy? Contact support! But if you really want to... #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger-outline"}
+        Unhappy? Contact support! But if you really want to... #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"}
