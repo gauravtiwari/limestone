@@ -74,5 +74,11 @@ gem 'stripe'
 gem 'stripe_event', '~> 1.5'
 gem 'receipts'
 
-# Never actually delete things
+# Never actually delete some things
 gem 'paranoia', '~> 2.2.0.pre'
+
+# Awesome upload to S3 directly
+gem 'shrine'
+gem 'aws-sdk'
+gem 'roda'
+gem 'jquery-file-upload-rails'

@@ -20,10 +20,15 @@ module.exports = {
       'babel-polyfill',
       'es5-shim/es5-shim',
       'es5-shim/es5-sham',
-      'jquery',
-      'tether',
+      // 'jquery',
+      // 'tether',
       'turbolinks',
       bootstrapEntryPoints.dev,
+
+      // jQuery fileupload stuff
+      // 'blueimp-file-upload/jquery.fileupload.ui',
+      // 'blueimp-file-upload/jquery.iframe-transport',
+      // 'blueimp-file-upload/jquery.fileupload',
 
       // React stuff
       // 'react-addons-pure-render-mixin',

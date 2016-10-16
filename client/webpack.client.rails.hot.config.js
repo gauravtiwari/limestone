@@ -13,9 +13,9 @@ config.entry.app.push(
 
 // These are Rails specific
 config.entry.vendor.push(
-  'jquery',
-  'jquery-ujs',
-  'bootstrap-loader'
+  // 'jquery',
+  // 'jquery-ujs',
+  // 'bootstrap-loader'
 );
 
 config.output = {
@@ -78,6 +78,6 @@ config.plugins.push(
 
 config.devtool = 'eval-source-map';
 
-console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
+// console.log('Webpack dev build for Rails'); // eslint-disable-line no-console
 
 module.exports = config;

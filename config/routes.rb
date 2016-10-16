@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount ImageUploader::UploadEndpoint => "/images/upload"
+  resources :avatars
   namespace :admin do
     resources :users
     resources :charges
