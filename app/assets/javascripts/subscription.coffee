@@ -1,4 +1,4 @@
-console.log 'subscription'
+console.log 'subscription.coffee'
 
 $(document).on 'turbolinks:load', ->
   console.log 'turbolinks:load'
