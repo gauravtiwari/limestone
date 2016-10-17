@@ -1,7 +1,5 @@
-console.log 'subscription.coffee'
-
 $(document).on 'turbolinks:load', ->
-  console.log 'turbolinks:load'
+  console.log 'turbolinks loaded'
   Stripe.setPublishableKey($("meta[name='stripe-key']").attr("content"))
 
   $('#payment_form').submit (event) ->
@@ -39,4 +37,3 @@ stripeResponseHandler = (status, response) ->
     $form.append $('<input type="hidden" name="card_brand" />').val(response.card.brand)
     # and submit
     $form.get(0).submit()
-  return

@@ -3,6 +3,11 @@ import ReactOnRails from 'react-on-rails';
 
 import HelloWorld from '../containers/HelloWorld';
 
+// TODO move to a common component register file
+ReactOnRails.setOptions({
+  traceTurbolinks: TRACE_TURBOLINKS,
+});
+
 const HelloWorldApp = (props) => (
   <HelloWorld {...props} />
 );

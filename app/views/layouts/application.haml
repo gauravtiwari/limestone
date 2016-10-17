@@ -9,7 +9,7 @@
     = action_cable_meta_tag
     = tag :meta, name: "stripe-key", content: Rails.application.secrets.stripe_publishable_key
 
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: Rails.env.production?
 
     -# Loads vendor and app JS for hotreloading dev server, which we're not using right now (till shakacode provides clear instruction)
     -# These do use turbolinks 5

@@ -43,6 +43,7 @@ const config = {
       'process.env': {
         NODE_ENV: JSON.stringify(nodeEnv),
       },
+      TRACE_TURBOLINKS: devBuild,
     }),
     new webpack.ProvidePlugin({
       $: "jquery",
@@ -66,10 +67,8 @@ const config = {
   ],
   module: {
     loaders: [
-      {
-        test: require.resolve('react'),
-        loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
-      },
+      { test: require.resolve('react'), loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham' },
+      { test: require.resolve('turbolinks'), loader: 'imports?this=>window' },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
