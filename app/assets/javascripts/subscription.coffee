@@ -1,7 +1,5 @@
 $(document).on 'turbolinks:load', ->
-  console.log 'turbolinks loaded'
   Stripe.setPublishableKey($("meta[name='stripe-key']").attr("content"))
-
   $('#payment_form').submit (event) ->
     $form = $(this)
     if $(".card-fields").hasClass("hidden")

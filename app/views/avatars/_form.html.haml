@@ -1,6 +1,9 @@
-= simple_form_for(@avatar) do |f|
-  = f.error_notification
+= form_for(avatar) do |f|
+  - if avatar.errors.any?
+    %h2#error_explanation
+      = "#{pluralize(photo.errors.count, "error")} prohibited this avatar from being saved:"
+    %ul
+      - avatar.errors.full_messages.each do |message|
+        %li= message
   .form-inputs
     = f.file_field :image
-  .form-actions
-    = f.button :submit
