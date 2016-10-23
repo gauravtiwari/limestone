@@ -1,9 +1,10 @@
-%h1 Settings
+%h1 Account
 .row
   .col-sm-6
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f|
       = devise_error_messages!
-      = f.input :email, autofocus: true
+      = f.input :name, autofocus: true
+      = f.input :email
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
@@ -13,6 +14,9 @@
       .form-group
         = f.button :submit, "Update", class: "btn btn-primary"
 
-      %h3 Cancel my account
+      %h4 Cancel my account
       %p
         Unhappy? Contact support! But if you really want to... #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"}
+  .col-sm-6
+    %h4 Avatar
+    = render 'avatars/form', avatar: @avatar, user: resource

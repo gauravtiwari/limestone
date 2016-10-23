@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015213318) do
+ActiveRecord::Schema.define(version: 20161023014550) do
 
   create_table "avatars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "image_data", limit: 65535
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20161015213318) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "avatar_id"
     t.string   "stripe_id"
     t.string   "stripe_subscription_id"
     t.string   "card_last4"

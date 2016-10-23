@@ -80,3 +80,7 @@ gem 'paranoia', '~> 2.2.0.pre'
 gem 'shrine'
 gem 'aws-sdk'
 gem 'roda'
+
+# Process images
+gem 'image_processing'
+gem 'mini_magick', '>= 4.3.5'

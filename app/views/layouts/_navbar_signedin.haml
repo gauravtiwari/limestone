@@ -4,9 +4,9 @@
     %li.nav-item.active
       = link_to 'Hello World', hello_world_path, class: 'nav-link'
     %li.nav-item.pull-xs-right
-      = link_to user_avatar(current_user, 21), '#', {class: 'nav-link dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': true, 'aria-expanded': false}
+      = link_to user_avatar(current_user, :nav), '#', {class: 'nav-link dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': true, 'aria-expanded': false}
       .dropdown-menu.dropdown-menu-right
-        = link_to 'Settings', edit_user_registration_path, class: 'dropdown-item'
+        = link_to 'Account', edit_user_registration_path, class: 'dropdown-item'
         = link_to current_user.subscribed? ? 'Billing' : 'Subscribe ', new_subscription_path, class: 'dropdown-item'
         .dropdown-divider
-        = link_to 'Sign out', main_app.destroy_user_session_path, method: 'delete', class: 'dropdown-item'
+        = link_to 'Logout', main_app.destroy_user_session_path, method: 'delete', class: 'dropdown-item'

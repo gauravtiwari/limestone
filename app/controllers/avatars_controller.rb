@@ -1,24 +1,11 @@
 class AvatarsController < ApplicationController
   before_action :set_avatar, only: [:show, :edit, :update, :destroy]
+  after_action :update_user, only: :create
 
   # GET /avatars
   # GET /avatars.json
   def index
     @avatars = Avatar.all
-  end
-
-  # GET /avatars/1
-  # GET /avatars/1.json
-  def show
-  end
-
-  # GET /avatars/new
-  def new
-    @avatar = Avatar.new
-  end
-
-  # GET /avatars/1/edit
-  def edit
   end
 
   # POST /avatars
@@ -29,6 +16,7 @@ class AvatarsController < ApplicationController
     respond_to do |format|
       if @avatar.save
         format.html { redirect_to @avatar, notice: 'Avatar was successfully created.' }
+        format.js { render status: :ok }
         format.json { render :show, status: :created, location: @avatar }
       else
         format.html { render :new }
@@ -42,10 +30,9 @@ class AvatarsController < ApplicationController
   def update
     respond_to do |format|
       if @avatar.update(avatar_params)
-        format.html { redirect_to @avatar, notice: 'Avatar was successfully updated.' }
         format.json { render :show, status: :ok, location: @avatar }
+        format.js { render status: :ok }
       else
-        format.html { render :edit }
         format.json { render json: @avatar.errors, status: :unprocessable_entity }
       end
     end
@@ -70,5 +57,10 @@ class AvatarsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def avatar_params
       params.require(:avatar).permit(:image)
+    end
+
+    def update_user
+      current_user.avatar.try(:destroy) # remove the existing avatar if it exists
+      current_user.update_attribute(:avatar_id, @avatar.id)
     end
 end

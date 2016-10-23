@@ -111,6 +111,7 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    image_processing (0.4.1)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -134,6 +135,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     mini_racer (0.1.4)
       libv8 (~> 5.0, < 5.1.11)
@@ -282,8 +284,10 @@ DEPENDENCIES
   devise
   erb2haml
   haml
+  image_processing
   jbuilder (~> 2.5)
   listen (~> 3.0.5)
+  mini_magick (>= 4.3.5)
   mini_racer
   mysql2
   paranoia (~> 2.2.0.pre)

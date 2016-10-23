@@ -1,7 +1,0 @@
-%p#notice= notice
-%p
-  %strong Image data:
-  = image_tag @avatar.image.url(public: true)
-= link_to 'Edit', edit_avatar_path(@avatar)
-|
-= link_to 'Back', avatars_path
