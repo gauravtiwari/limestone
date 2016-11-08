@@ -22,6 +22,7 @@ const config = {
 
     // app
     './app/bundles/HelloWorld/startup/HelloWorldApp',
+    './app/bundles/Avatar/startup/AvatarApp',
   ],
 
   output: {
