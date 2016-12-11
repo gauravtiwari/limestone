@@ -13,14 +13,7 @@ Rails.application.routes.draw do
   if ActiveRecord::Base.connection.data_source_exists? 'users'
     devise_for :users, path: "",
       path_names: { sign_in: "login", sign_out: "logout", registration: "profile" },
-      controllers: { registrations: "users/registrations" } #sessions: "users/sessions", passwords: "users/passwords"
-
-    # Take the user to the login page if not signed in, regardless of whether a subdomain is present
-    unauthenticated :user do
-      devise_scope :user do
-        root to: "users/sessions#new", as: "login"
-      end
-    end
+      controllers: { registrations: "users/registrations" } #, sessions: "users/sessions", passwords: "users/passwords" }
   end
 
   # marketing pages
