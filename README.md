@@ -1,6 +1,6 @@
 # Limestone Webpack
 
-Limestone is a boilerplate SaaS app built with Rails 5 and an opinionated integration with React. Limestone is built with Shakacode's react_on_rails. It uses a webpack pipeline which works with Rails' asset pipeline. Hot reloading is close to working but not. This is very much a work in progress.
+Limestone is a boilerplate SaaS app built with Rails 5 and allows for an opinionated integration with React. It uses a webpack pipeline which works with Rails' asset pipeline. This is a work in progress.
 
 ## The Stack
 The gemset has been chosen to be modern, performant, and take care of a number of business concerns common to SaaS. As-is it's intended for deployment to AWS.
@@ -8,7 +8,6 @@ The gemset has been chosen to be modern, performant, and take care of a number o
 * MySQL
 * jQuery
 * Turbolinks 5
-* react_on_rails
 * CoffeeScript
 * HAML
 * Simple Form
@@ -21,9 +20,8 @@ The gemset has been chosen to be modern, performant, and take care of a number o
 
 ## Features
 * Stripe subscription on sign up. Supports free trials without providing a card, and has card update forms. Emails receipts.
-* Direct uploading to S3 with Shrine, with progress bar. Image processing for resizing.
+* Direct uploading to S3 with Shrine, with progress bar. Image processing for resizing. This is demonstrated with user avatars.
 * Administrate dashboard lets you CRUD relevant records (ex: users). Easy to add more and customize as you like.
-* Flexible React.js integration with react_on_rails
 * Paranoia gem ensures data persists after delete. Allows you to restore. Trust me, you want this for support.
 
 ## Roadmap
@@ -37,7 +35,6 @@ The gemset has been chosen to be modern, performant, and take care of a number o
 * Feature rollout using the rollout gem.
 * User impersonation using the pretender gem (or custom).
 * Multi-factor authentication support.
-* Apartment subdomain per account (for paying users).
 
 
 ## Getting Started
