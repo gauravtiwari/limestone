@@ -27,6 +27,4 @@ Rails.application.routes.draw do
   resource :subscription, path: 'billing'
   resource :card
   resources :charges
-
-  get 'hello_world', to: 'hello_world#index'
 end

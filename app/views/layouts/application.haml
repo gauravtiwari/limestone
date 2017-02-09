@@ -1,30 +1,15 @@
 !!!
 %html
   %head
-    %title ShakaLimestone
+    %title Limestone
 
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %meta{name: 'viewport', content: "width=device-width, initial-scale=1"}
     %meta{'http-equiv': 'x-ua-compatible', content: 'ie=edge'}
     = action_cable_meta_tag
     = tag :meta, name: "stripe-key", content: Rails.application.secrets.stripe_publishable_key
-
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': true
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', defer: Rails.env.production?
-
-    -# Loads vendor and app JS for hotreloading dev server, which we're not using right now (till shakacode provides clear instruction)
-    -# These do use turbolinks 5
-    -# = env_stylesheet_link_tag(static: 'application_static', |
-      hot: 'application_non_webpack',                       |
-      media: 'all',                                         |
-      'data-turbolinks-track' => "reload")                  |
-    -# These do not use turbolinks, so no data-turbolinks-track
-    -#  This is to load the hot assets.
-    -# = env_javascript_include_tag(hot: ['http://localhost:3500/vendor-bundle.js', |
-      'http://localhost:3500/app-bundle.js'])                                    |
-    -# These do use turbolinks 5
-    -# = env_javascript_include_tag(static: 'application_static', |
-      hot: 'application_non_webpack',                          |
-      'data-turbolinks-track' => "reload")                     |
 
     // External JS required by our application JS
     = javascript_include_tag 'https://js.stripe.com/v2/', 'data-turbolinks-track' => true
