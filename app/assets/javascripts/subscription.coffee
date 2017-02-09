@@ -1,6 +1,7 @@
 $(document).on 'turbolinks:load', ->
   Stripe.setPublishableKey($("meta[name='stripe-key']").attr("content"))
   $('#payment_form').submit (event) ->
+    console.log "sup"
     $form = $(this)
     if $(".card-fields").hasClass("hidden")
       # Use the default card

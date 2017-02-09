@@ -1,4 +1,5 @@
-%h1= current_user.subscribed? ? 'You\'re Currently Subscribed!' : 'Subscribe!'
+.row
+  %h1= current_user.subscribed? ? 'You\'re Currently Subscribed!' : 'Subscribe!'
 
 .row
   .col-md-7.col-sm-12
@@ -13,7 +14,7 @@
         %button.btn.btn-secondary{type: 'button', 'data-toggle': 'collapse', 'data-target': '#new_card'} Use a different card
       .row
         #new_card.collapse.offset-sm-1.col-xs-11
-          = simple_form_for card_path, method: :put, id: "payment_form", class: "form form-horizontal" do
+          = form_tag card_path, method: :put, id: "payment_form", class: "form form-horizontal" do
             %span.payment-errors
             .form-group.row
               %label.col-xs-4.form-label Card Number
@@ -33,7 +34,7 @@
               %button{type: "submit", class: 'btn btn-success'} Update Card
     - else
       .row
-        = simple_form_for subscription_path, id: "payment_form", class: "form form-horizontal" do
+        = form_tag subscription_path, id: "payment_form", class: "form form-horizontal" do
           -# %div{class: "card-fields #{card_fields_class}"}
           %span.payment-errors
           .form-group.row
