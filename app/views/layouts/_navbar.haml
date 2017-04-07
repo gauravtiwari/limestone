@@ -1,5 +1,8 @@
-%nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+%nav.navbar.navbar-toggleable-md.navbar-fixed-top.navbar-dark.bg-inverse
+  %button.navbar-toggler.navbar-toggler-right{type: 'button', data: { toggle: 'collapse' }}
+    %span.navbar-toggler-icon
   = link_to 'Brand', main_app.root_path, class: 'navbar-brand'
+  #nav_loggedout.collapse.navbar-collapse
   %ul.nav.navbar-nav
     %li.nav-item
       = link_to 'Features', features_path, class: 'nav-link'

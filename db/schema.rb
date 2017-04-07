@@ -12,51 +12,54 @@
 
 ActiveRecord::Schema.define(version: 20161023014550) do
 
-  create_table "avatars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "image_data", limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "avatars", id: :serial, force: :cascade do |t|
+    t.text "image_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "charges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.string   "stripe_id"
-    t.integer  "amount"
-    t.string   "card_last4"
-    t.string   "card_type"
-    t.string   "card_exp_month"
-    t.string   "card_exp_year"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["stripe_id"], name: "index_charges_on_stripe_id", unique: true, using: :btree
+  create_table "charges", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.string "stripe_id"
+    t.integer "amount"
+    t.string "card_last4"
+    t.string "card_type"
+    t.string "card_exp_month"
+    t.string "card_exp_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stripe_id"], name: "index_charges_on_stripe_id", unique: true
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "name"
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "avatar_id"
-    t.string   "stripe_id"
-    t.string   "stripe_subscription_id"
-    t.string   "card_last4"
-    t.integer  "card_exp_month"
-    t.integer  "card_exp_year"
-    t.string   "card_type"
-    t.integer  "role"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "stripe_id"
+    t.string "stripe_subscription_id"
+    t.string "card_last4"
+    t.integer "card_exp_month"
+    t.integer "card_exp_year"
+    t.string "card_type"
+    t.integer "role"
     t.datetime "deleted_at"
-    t.index ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.integer "avatar_id"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
