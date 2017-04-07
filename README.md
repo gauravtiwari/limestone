@@ -44,4 +44,4 @@ This is just a guess. Submit a PR with proper steps if you find them out.
 * Customize config/secrets.yml from config/secrets-example.yml
 * `bundle && npm install && rake db:setup`
 * `foreman start -f Procfile.hot`
-* Visit localhost:5000
+* Visit localhost:3000

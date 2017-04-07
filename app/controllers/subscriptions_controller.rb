@@ -19,25 +19,28 @@ class SubscriptionsController < ApplicationController
                  Stripe::Customer.create(email: current_user.email)
                end
 
-    subscription = customer.subscriptions.create(
-      source: params[:stripeToken],
-      plan: "Monthly"
-    )
+    begin
+      # Change this to a selected plan if you have more than 1
+      plan = Stripe::Plan.list(limit: 1).first
+      subscription = customer.subscriptions.create( source: params[:stripeToken], plan: plan.id)
 
-    options = {
-      stripe_id: customer.id,
-      stripe_subscription_id: subscription.id,
-    }
+      options = {
+        stripe_id: customer.id,
+        stripe_subscription_id: subscription.id,
+      }
 
-    # Only update the card on file if we're adding a new one
-    options.merge!(
-      card_last4: params[:card_last4],
-      card_exp_month: params[:card_exp_month],
-      card_exp_year: params[:card_exp_year],
-      card_type: params[:card_brand]
-    ) if params[:card_last4]
+      # Only update the card on file if we're adding a new one
+      options.merge!(
+        card_last4: params[:card_last4],
+        card_exp_month: params[:card_exp_month],
+        card_exp_year: params[:card_exp_year],
+        card_type: params[:card_brand]
+      ) if params[:card_last4]
 
-    current_user.update(options)
+      current_user.update(options)
+    rescue => e
+      puts "Log this error! #{e.inspect}"
+    end
 
     redirect_to root_path
   end
