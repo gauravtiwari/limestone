@@ -1,15 +1,12 @@
-%nav.navbar.navbar-toggleable-md.navbar-fixed-top.navbar-dark.bg-inverse
+%nav.navbar.navbar-toggleable-md.navbar-fixed-top.navbar-light.bg-faded
   %button.navbar-toggler.navbar-toggler-right{type: 'button', data: { toggle: 'collapse' }}
     %span.navbar-toggler-icon
   = link_to 'Brand', main_app.root_path, class: 'navbar-brand'
   #nav_loggedout.collapse.navbar-collapse
-  %ul.nav.navbar-nav
-    %li.nav-item
-      = link_to 'Features', features_path, class: 'nav-link'
-    %li.nav-item
-      = link_to 'Pricing', pricing_path, class: 'nav-link'
-    %li.nav-item
-      = link_to 'About', about_path, class: 'nav-link'
-    %li.nav-item.pull-xs-right
+    .navbar-nav.mr-auto
+      = link_to 'Features', features_path, class: 'nav-item nav-link'
+      = link_to 'Pricing', pricing_path, class: 'nav-item nav-link'
+      = link_to 'About', about_path, class: 'nav-item nav-link'
+    .form
       = link_to 'Sign up', main_app.new_user_registration_path, class: 'btn btn-success'
       = link_to 'Sign in', main_app.new_user_session_path, class: 'btn btn-secondary'

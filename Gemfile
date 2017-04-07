@@ -67,7 +67,7 @@ gem 'stripe_event', '~> 1.5'
 gem 'receipts'
 
 # Never actually delete some things
-gem 'paranoia', '~> 2.2.0.pre'
+# gem 'paranoia', '~> 2.2'
 
 # Upload to S3 directly
 gem 'shrine'

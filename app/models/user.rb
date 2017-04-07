@@ -1,12 +1,12 @@
 class User < ApplicationRecord
-  acts_as_paranoid
+  # acts_as_paranoid
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :charges
-  belongs_to :avatar
+  has_one :avatar
 
   enum role: [:trial, :user, :admin]
   after_initialize :set_default_role, :if => :new_record?
