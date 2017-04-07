@@ -39,5 +39,5 @@ The gemset has been chosen to be modern, performant, and take care of a number o
 * `git clone git@github.com:archonic/limestone_webpack.git`
 * Customize config/database.yml
 * Customize config/secrets.yml from config/secrets-example.yml
-* `rake db:setup`
+* `rails db:setup`
 * Visit localhost:3000

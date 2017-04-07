@@ -48,6 +48,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'mini_racer', platforms: :ruby
 
+gem 'webpacker', github: 'rails/webpacker'
+
 # Front-end stuff (non webpack stuff!)
 gem 'haml', "5.0.0.beta.2"
 gem 'simple_form'
