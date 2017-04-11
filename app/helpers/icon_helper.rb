@@ -1,5 +1,5 @@
 module IconHelper
   def user_avatar(user, size=:sm)
-    "Avatar!"
+    image_tag user.avatar_url(size)
   end
 end
