@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load", function() {
-  $("input:file").fileupload({
+
+  $("[type=file]").fileupload({
     add: function(e, data) {
-      console.log('ADDED')
       data.progressBar = $('<progress class="progress col-xs-6" value="0" max="100"></progress>').insertAfter("body")
       var options = {
         extension: data.files[0].name.match(/(\.\w+)?$/)[0], // set the file extension
@@ -20,7 +20,7 @@ $(document).on("turbolinks:load", function() {
     progress: function(e, data) {
       var progress = parseInt(data.loaded / data.total * 100, 10);
       var percentage = progress.toString() + '%'
-      console.log("Progress:" + percentage)
+      // console.log("Progress:" + percentage)
       data.progressBar.attr('value', progress);
     },
     done: function(e, data) {
