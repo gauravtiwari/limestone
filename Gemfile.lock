@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/rails/webpacker.git
-  revision: 7b83822d34b6508a5eb15bfddd9f96b653bb5abd
-  specs:
-    webpacker (1.1)
-      activesupport (>= 4.2)
-      multi_json (~> 1.2)
-      railties (>= 4.2)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -48,6 +39,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     administrate (0.3.0)
       autoprefixer-rails (~> 6.0)
       bourbon (~> 4.2)
@@ -82,6 +75,15 @@ GEM
       thor (~> 0.19)
     builder (3.2.3)
     byebug (9.0.6)
+    capybara (2.13.0)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    childprocess (0.6.3)
+      ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -124,7 +126,6 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    libv8 (5.3.332.38.5)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -138,8 +139,6 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.7.0)
     mini_portile2 (2.1.0)
-    mini_racer (0.1.9)
-      libv8 (~> 5.3)
     minitest (5.10.1)
     momentjs-rails (2.17.1)
       railties (>= 3.1)
@@ -162,6 +161,7 @@ GEM
       ttfunk (~> 1.5)
     prawn-table (0.2.2)
       prawn (>= 1.3.0, < 3.0.0)
+    public_suffix (2.0.5)
     puma (3.8.2)
     puma (3.8.2-java)
     pundit (1.1.0)
@@ -204,6 +204,7 @@ GEM
       railties (>= 4.2.0, < 5.1)
     roda (2.24.0)
       rack
+    rubyzip (1.2.1)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -212,6 +213,10 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     selectize-rails (0.12.4)
+    selenium-webdriver (3.3.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     shrine (2.6.0)
       down (>= 2.3.6)
     simple_form (3.4.0)
@@ -256,11 +261,18 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (1.1)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
+    websocket (1.2.4)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-driver (0.6.5-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   java
@@ -273,6 +285,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha6)
   bourbon
   byebug
+  capybara (~> 2.13.0)
   coffee-rails (~> 4.2)
   devise
   haml (= 5.0.0.beta.2)
@@ -280,7 +293,6 @@ DEPENDENCIES
   jbuilder (~> 2.6)
   listen (~> 3.0.5)
   mini_magick (>= 4.3.5)
-  mini_racer
   pg
   puma (~> 3.8)
   pundit
@@ -289,6 +301,7 @@ DEPENDENCIES
   receipts
   roda
   sass-rails (~> 5.0)
+  selenium-webdriver
   shrine
   simple_form
   spring
@@ -300,7 +313,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
-  webpacker!
+  webpacker
 
 RUBY VERSION
    ruby 2.4.1p111

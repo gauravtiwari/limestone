@@ -1,4 +1,6 @@
 {
+  "name": "limestone",
+  "private": true,
   "dependencies": {
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.1",
